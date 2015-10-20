@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My First Angular App</title>
+  <link rel="stylesheet" href="/style/main.css" charset="utf-8">
+</head>
+
+<body>
+<div class="body" ng-app="angularApp">
+  <div ng-controller="NamesController as name">
+    <div class="left" ng-show="name.currentName && name.inputDisabled">
+      <h1 ng-click="name.revealInput()">{{ name.greet(name.currentName) }}</h1>
+    </div>
+    <div class="left" ng-show="!name.currentName || !name.inputDisabled">
+      <h1>Please enter your name:</h1>
+      <form ng-submit="name.addName()">
+        <input ng-class="{ 'valid': name.currentName, 'invalid': !name.currentName }"
+               type="text"
+               autofocus
+               ng-model="name.currentName">
+        <button>Enter</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/modules/names/nameController.js"></script>
+</body>
