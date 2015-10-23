@@ -4,27 +4,22 @@
   <meta charset="utf-8">
   <title>My First Angular App</title>
   <link rel="stylesheet" href="/style/main.css" charset="utf-8">
+  <!-- <base href='/'> -->
 </head>
 
-<body>
-<div class="body" ng-app="angularApp">
-  <div ng-controller="NamesController as name">
-    <div class="left" ng-show="name.currentName && name.inputDisabled">
-      <h1 ng-click="name.revealInput()">{{ name.greet(name.currentName) }}</h1>
-    </div>
-    <div class="left" ng-show="!name.currentName || !name.inputDisabled">
-      <h1>Please enter your name:</h1>
-      <form ng-submit="name.addName()">
-        <input ng-class="{ 'valid': name.currentName, 'invalid': !name.currentName }"
-               type="text"
-               autofocus
-               ng-model="name.currentName">
-        <button>Enter</button>
-      </form>
-    </div>
-  </div>
+<body ng-app="firstApp">
+
+<div class="body">
+  <div ui-view></div>
 </div>
+
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="js/app.js"></script>
-<script src="js/modules/names/nameController.js"></script>
+<script src="js/modules/api_monkey/api_monkey.js"></script>
+<script src="js/modules/format_text/format_text.js"></script>
+<script src="js/modules/names/namesCtrl.js"></script>
+<script src="js/modules/home/homeCtrl.js"></script>
+<script src="js/modules/dir_hover/hover.js"></script>
+
 </body>

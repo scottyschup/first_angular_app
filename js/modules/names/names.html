@@ -1,0 +1,18 @@
+<div>
+  <div class="left" hovering="name.hoverInput" ng-show="name.currentName && name.inputDisabled">
+    <h1 ng-click="name.revealInput(ev)">{{ name.greet(name.currentName) }}</h1>
+    <ul>
+      <li ng-repeat="(_k, v) in name.names">{{ v.case + ": " + v.name }}</li>
+    </ul>
+  </div>
+  <div class="left" ng-show="!name.currentName || !name.inputDisabled">
+    <h1>Please enter your name:</h1>
+    <form ng-submit="name.addName(name.currentName)">
+      <input ng-class="{ 'valid': name.currentName, 'invalid': !name.currentName }"
+             type="text"
+             autofocus
+             ng-model="name.currentName">
+      <button>Enter</button>
+    </form>
+  </div>
+</div>
