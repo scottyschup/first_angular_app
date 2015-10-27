@@ -24,6 +24,16 @@ input, button {
   font-size: 3vh;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.small-button {
+  margin: 0 3px;
+  height: 2vh;
+  font-size: 1.5vh;
+}
+
 .left {
   float: left;
 }
@@ -50,4 +60,16 @@ input, button {
 
 .visible {
   visibility: visible;
+}
+
+#tooltip {
+  background-color: #CCC;
+  border: 2px solid #000;
+  border-radius: 5px;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  position: fixed;
+  z-index: 1000;
+  transition: opacity .5s ease-out
 }

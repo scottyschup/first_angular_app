@@ -1,10 +1,12 @@
 <div>
-  <div class="left" hovering="name.hoverInput" ng-show="name.currentName && name.inputDisabled">
+  <div class="left" ng-show="name.currentName && name.inputDisabled">
     <h1 ng-click="name.revealInput(ev)">{{ name.greet(name.currentName) }}</h1>
     <ul>
       <li ng-repeat="(_k, v) in name.names">{{ v.case + ": " + v.name }}</li>
     </ul>
+    <button ng-click="name.revealInput(ev)">Add another</button>
   </div>
+
   <div class="left" ng-show="!name.currentName || !name.inputDisabled">
     <h1>Please enter your name:</h1>
     <form ng-submit="name.addName(name.currentName)">
@@ -14,5 +16,19 @@
              ng-model="name.currentName">
       <button>Enter</button>
     </form>
+  </div>
+
+  <div class="right">
+    <ul ng-model="name.allNames">
+      <li class="clear" ng-repeat="(_k, v) in name.allNames">
+        <button class="small-button left" ng-click="name.editName(v.id)">Edit</button>
+        <button class="small-button left" ng-click="name.deleteName(v.id)">Delete</button>
+        {{ v.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div id="tooltip">
+    <p>Click on the name to edit it!</p>
   </div>
 </div>
